@@ -2,10 +2,12 @@ package Test;
 import Data.ConstantsData;
 import Maps.OrdersListMap;
 import Utils.BaseTest;
+import Utils.ExtentReportManager;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 public class ShoppingTest extends BaseTest {
 
@@ -13,7 +15,13 @@ public class ShoppingTest extends BaseTest {
     public void validateLoginCredetianls() {
         loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);
         Assert.assertTrue(commands.isElementVisible(mainPageMap.signOutButton));
-
+        test  = ExtentReportManager.createTest("testLogin");
+        test.log(Status.INFO, "Successfully created test: testLogin");
+        if (test == null) {
+            System.out.println("Error: Could not create test in Extent Reports.");
+        } else {
+            System.out.println("Test created correctly in Extent Reports.");
+        }
     }
 
     @Test(groups = {"regression"})
