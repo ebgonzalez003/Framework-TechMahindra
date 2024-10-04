@@ -1,7 +1,5 @@
 package Utils;
-
 import Maps.CheckOutPageMap;
-import Maps.LoginPageMap;
 import Maps.MainPageMap;
 import Pages.LoginPage;
 import Pages.MainPage;
@@ -14,12 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 import java.time.Duration;
-
-import static Utils.ExtentReportManager.test;
 
 public class BaseTest {
 
@@ -55,18 +48,13 @@ public class BaseTest {
     public void tearDown(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
-                // Captura de pantalla al momento del fallo
                 String screenshotPath = ScreenshotUtils.takeScreenshot(driver, result.getName());
-
-                // Registrar el fallo en el reporte e incluir la captura
                 test.fail("Test Failed " + result.getThrowable().getMessage())
                         .addScreenCaptureFromPath(screenshotPath);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        // Cerrar el reporte después de cada método
         ExtentReportManager.closeReport();
     }
 }

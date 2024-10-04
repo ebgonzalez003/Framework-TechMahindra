@@ -1,5 +1,4 @@
 package Utils;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -26,7 +25,7 @@ public class ExtentReportManager {
 
     public static void closeReport() {
         if (extent != null) {
-            extent.flush(); // Guarda el reporte final
+            extent.flush();
         }
     }
 }

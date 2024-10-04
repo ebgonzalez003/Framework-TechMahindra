@@ -3,7 +3,6 @@ import Data.ConstantsData;
 import Maps.OrdersListMap;
 import Utils.BaseTest;
 import Utils.ExtentReportManager;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -90,18 +89,6 @@ public class ShoppingTest extends BaseTest {
         Assert.assertEquals(commands.getTextFromElement(mainPageMap.filterResNumber), ConstantsData.RESULT5);
     }
 
-    // @Test(groups = {"regression", "smoke"})
-    // public void validateBuyMoreProducts() {
-    //     ArrayList<String> products = new ArrayList<>();
-    //     products.add(ConstantsData.ARTICLEIPHONE);
-    //     products.add(ConstantsData.ARTICLEZARACOAT);
-    //     loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);
-    //     products.forEach(product -> {
-    //         mainPage.addToCart(product);
-    //     });
-    //     checkOutPage.buyMoreProducts();
-    //     Assert.assertEquals(commands.getTextFromElement(checkOutPageMap.ThanksMsg), ConstantsData.THANKSMESSAGE, "El mensaje de agradecimiento no es correcto.");
-    // }
     @Test(groups = {"regression", "smoke"})
     public void validateTheOrderAfterPurchase() {
         loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);

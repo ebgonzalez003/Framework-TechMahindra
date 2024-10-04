@@ -1,5 +1,4 @@
 package Pages;
-
 import Maps.MainPageMap;
 import Utils.CommonCommands;
 import org.openqa.selenium.By;

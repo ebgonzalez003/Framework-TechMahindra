@@ -1,5 +1,4 @@
 package Pages;
-
 import Data.ConstantsData;
 import Maps.CheckOutPageMap;
 import Maps.MainPageMap;
