@@ -1,7 +1,7 @@
 package Maps;
 import org.openqa.selenium.By;
 public class CheckOutPageMap {
-    public By OrdersBtn = By.xpath("//app-sidebar/nav/ul/li[3]/button");
+
     public By CheckoutBtn = By.xpath("//div[@class='subtotal cf ng-star-inserted']/ul/li[3]/button");
     public By CvvBox = By.xpath("//form//div[2]/input");
     public By NameOnCard = By.xpath("//form/div/div[3]/div/input");

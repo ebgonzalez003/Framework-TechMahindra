@@ -13,7 +13,6 @@ public class ConstantsData {
     public final static String COUNTRY = "Mexico";
     public final static String RESULT1 = "Showing results   |";
     public final static String RESULT2 = "Showing 1 results   |";
-    public final static String RESULT3 = "Showing 2 results   |";
     public final static String RESULT4 = "Showing 3 results   |";
     public final static String RESULT5 = "Showing 0 results   |";
     public final static String THANKSMESSAGE = "THANKYOU FOR THE ORDER.";

@@ -7,5 +7,4 @@ public class OrdersListMap {
     public static By viewBtnOrders = By.xpath("//app-myorders/div[1]/table/tbody/tr[1]/td[5]/button");
     public static By thanksMsj = By.xpath("//app-order-details/div/div/div/div/div[1]/p");
     public static By deleteBtn = By.xpath("//app-myorders/div[1]/table/tbody/tr[1]/td[6]/button");
-    public static By orderDeleteMsj = By.xpath("//div[@id= 'toast-container']");
 }

@@ -1,13 +1,5 @@
-package Test;
-
-
-import Utils.ExcelUtils;
-import org.testng.annotations.DataProvider;
+package Test;;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Map;
 
 public class ExcelDataTest {
 

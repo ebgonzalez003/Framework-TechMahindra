@@ -1,8 +1,6 @@
 package Data;
-
 import Utils.ExcelUtils;
 import org.testng.annotations.DataProvider;
-
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
