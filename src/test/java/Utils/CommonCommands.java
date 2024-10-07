@@ -1,4 +1,5 @@
 package Utils;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
@@ -9,22 +10,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+
 public class CommonCommands {
     public WebDriver driver;
     WebDriverWait wait;
     Actions actions;
+    public ExtentTest test;
 
     // Constructor
-    public CommonCommands(WebDriver driver) {
+    public CommonCommands(WebDriver driver, ExtentTest test) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera explícita de 10 segundos
         this.actions = new Actions(driver);
+        this.test = test;
     }
 
     // Method to click an element with explicit wait
     public void clickElement(By locator) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        element.click();
+        try{
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+            element.click();
+            test.pass("Successfully click on element " + locator );
+        }catch (Exception e){
+            test.fail("Not able to click on element" + locator) ;
+        }
+
+
     }
 
     // Method to send text to an input field with explicit wait
@@ -32,6 +43,7 @@ public class CommonCommands {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.clear();
         element.sendKeys(text);
+
     }
 
     // Method to handle a list of elements

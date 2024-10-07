@@ -1,7 +1,5 @@
 package Data;
 
-import org.openqa.selenium.By;
-
 public class ConstantsData {
 
     public final static String VALIDUSERNAME = "emilianobadilloplai21@gmail.com";
@@ -20,7 +18,8 @@ public class ConstantsData {
     public final static String RESULT5 = "Showing 0 results   |";
     public final static String THANKSMESSAGE = "THANKYOU FOR THE ORDER.";
     public final static String ORDERTHANKSMSJ = "Thank you for Shopping With Us";
-    public final static String ORDERDELETED = "By.xpath: //div[@id= 'toast-container']";
+    public final static String ERROR = "Error: Could not create test in Extent Reports.";
+    public final static String SUCCES = "Test created correctly in Extent Reports.";
 
 
 

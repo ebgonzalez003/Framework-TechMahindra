@@ -1,5 +1,6 @@
 package Test;
 import Data.ConstantsData;
+import Data.DataProviders;
 import Maps.OrdersListMap;
 import Utils.BaseTest;
 import Utils.ExtentReportManager;
@@ -9,24 +10,28 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ShoppingTest extends BaseTest {
-
-    @Test(groups = {"regression"})
-    public void validateLoginCredetianls() {
-        loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);
+    @Test(groups = {"regression"}, dataProvider = "excelDataProvider", dataProviderClass = DataProviders.class)
+    public void validateLoginCredetianls(String username, String password) {
+        loginPage.userLogin(username, password);
         Assert.assertTrue(commands.isElementVisible(mainPageMap.signOutButton));
-        test  = ExtentReportManager.createTest("testLogin");
-        test.log(Status.INFO, "Successfully created test: testLogin");
         if (test == null) {
-            System.out.println("Error: Could not create test in Extent Reports.");
+            System.out.println(ConstantsData.ERROR);
         } else {
-            System.out.println("Test created correctly in Extent Reports.");
+            System.out.println(ConstantsData.SUCCES);
         }
     }
 
-    @Test(groups = {"regression"})
-    public void validateLoginWrongCredentials() {
+    @Test(groups = {"regression"}, dataProvider = "excelDataProvider", dataProviderClass = DataProviders.class)
+    public void validateLoginWrongCredentials(String username, String password) {
         loginPage.userLogin(ConstantsData.INVALIDUSERNAME, ConstantsData.INVALID_PASSWORD);
         Assert.assertEquals(commands.getTextFromElement(mainPageMap.errorMessage), "Incorrect email or password.");
+        test  = ExtentReportManager.createTest("errorLogin");
+        test.log(Status.INFO, "Successfully created test: errorLogin");
+        if (test == null) {
+            System.out.println(ConstantsData.ERROR);
+        } else {
+            System.out.println(ConstantsData.SUCCES);
+        }
     }
 
     @Test(groups = {"smoke"})
@@ -37,7 +42,6 @@ public class ShoppingTest extends BaseTest {
         commands.isElementVisible(mainPageMap.alertMessage);
         commands.waitForElementToDisappear(mainPageMap.spinner);
         commands.clickElement(mainPageMap.shoppingCart);
-
     }
 
     @Test(groups = {"smoke"})

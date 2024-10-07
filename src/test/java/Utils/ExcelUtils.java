@@ -3,7 +3,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.*;
 
 
 public class ExcelUtils {
@@ -58,5 +58,45 @@ public class ExcelUtils {
             default:
                 return "";
         }
+    }
+
+    public static List<Map<String, String>> getExcelDataByHeaders(String filePath, String sheetName) {
+        List<Map<String, String>> data = new ArrayList<>();
+
+        try {
+            FileInputStream file = new FileInputStream(filePath);
+            Workbook workbook = WorkbookFactory.create(file);
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            // Leer la primera fila como encabezados
+            Row headerRow = sheet.getRow(0);
+            int numCols = headerRow.getLastCellNum();
+            List<String> headers = new ArrayList<>();
+
+            for (int i = 0; i < numCols; i++) {
+                headers.add(headerRow.getCell(i).toString().trim());
+            }
+
+            // Leer las demás filas como datos
+            Iterator<Row> rowIterator = sheet.iterator();
+            rowIterator.next(); // Saltar la fila de encabezados
+
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                Map<String, String> rowData = new HashMap<>();
+
+                for (int i = 0; i < numCols; i++) {
+                    Cell cell = row.getCell(i);
+                    String cellValue = (cell == null) ? "" : cell.toString();
+                    rowData.put(headers.get(i), cellValue.trim());  // Asocia cada celda al encabezado
+                }
+
+                data.add(rowData); // Añadir fila a la lista de datos
+            }
+            workbook.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 }
