@@ -55,8 +55,6 @@ public class BaseTest implements ITestListener {
         checkOutPage= new CheckOutPage(commands);
         OrdersPage = new OrdersPage(commands);
 
-
-
     }
     @AfterMethod(groups = {"regression", "smoke"})
     public void tearDown(ITestResult result) {

@@ -20,7 +20,7 @@ public class CommonCommands {
     // Constructor
     public CommonCommands(WebDriver driver, ExtentTest test) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera explícita de 10 segundos
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.actions = new Actions(driver);
         this.test = test;
     }
@@ -34,16 +34,18 @@ public class CommonCommands {
         }catch (Exception e){
             test.fail("Not able to click on element" + locator) ;
         }
-
-
     }
 
     // Method to send text to an input field with explicit wait
     public void sendKeysToElement(By locator, String text) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        element.clear();
-        element.sendKeys(text);
-
+       try {
+           WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+           element.clear();
+           element.sendKeys(text);
+           test.pass("Successfully Keys sent correctly  " + locator );
+       }catch (Exception e){
+           test.fail("The keys were not sent correctly " + locator) ;
+       }
     }
 
     // Method to handle a list of elements

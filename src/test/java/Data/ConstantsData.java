@@ -1,5 +1,4 @@
 package Data;
-
 public class ConstantsData {
 
     public final static String VALIDUSERNAME = "emilianobadilloplai21@gmail.com";
