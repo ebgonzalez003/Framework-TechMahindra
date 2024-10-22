@@ -25,6 +25,14 @@ public class CheckOutPage {
         commands.scrollToElementAndClick(checkOutPageMap.PlaceOrder);
 
     }
+    public void validateRequiredFields(){
+        commands.isElementVisible(mainPageMap.waitArticlesToAppear);
+        commands.isElementVisible(mainPageMap.alertMessage);
+        commands.waitForElementToDisappear(mainPageMap.spinner);
+        commands.clickElement(mainPageMap.shoppingCart);
+        commands.scrollToElementAndClick(checkOutPageMap.CheckoutBtn);
+        commands.scrollToElementAndClick(checkOutPageMap.PlaceOrder);
+    }
 
 }
 

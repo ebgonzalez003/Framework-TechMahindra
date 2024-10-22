@@ -32,4 +32,5 @@ public class OrdersPage {
         commands.clickElement(OrdersListMap.ordersBtn);
         commands.clickElement(OrdersListMap.deleteBtn);
     }
+
 }

@@ -12,12 +12,13 @@ public class ConstantsData {
     public final static String COUNTRY = "Mexico";
     public final static String RESULT1 = "Showing results   |";
     public final static String RESULT2 = "Showing 1 results   |";
-    public final static String RESULT4 = "Showing 3 results   |";
+    public final static String RESULT4 = "Showing 4 results   |";
     public final static String RESULT5 = "Showing 0 results   |";
     public final static String THANKSMESSAGE = "THANKYOU FOR THE ORDER.";
     public final static String ORDERTHANKSMSJ = "Thank you for Shopping With Us";
     public final static String ERROR = "Error: Could not create test in Extent Reports.";
     public final static String SUCCES = "Test created correctly in Extent Reports.";
+    public final static  String SHIPPINGMSJ = "true";
 
 
 

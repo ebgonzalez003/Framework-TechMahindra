@@ -1,7 +1,9 @@
 package Test;
 import Data.ConstantsData;
 import Data.DataProviders;
+import Maps.CheckOutPageMap;
 import Maps.OrdersListMap;
+import Pages.CheckOutPage;
 import Utils.BaseTest;
 import Utils.ExtentReportManager;
 import com.aventstack.extentreports.Status;
@@ -105,5 +107,14 @@ public class ShoppingTest extends BaseTest {
     public void validateDeleteTheOrder() {
         loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);
         OrdersPage.deleteTheOrder();
+    }
+
+    @Test (groups = {"regression"})
+    public void validateRequiredFields(){
+        loginPage.userLogin(ConstantsData.VALIDUSERNAME, ConstantsData.VALID_PASSWORD);
+        mainPage.addToCart(ConstantsData.ARTICLEZARACOAT);
+        checkOutPage.validateRequiredFields();
+        Assert.assertFalse(false);
+
     }
 }
