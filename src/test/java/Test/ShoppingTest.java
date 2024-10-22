@@ -113,6 +113,6 @@ public class ShoppingTest extends BaseTest {
         mainPage.addToCart(ConstantsData.ARTICLE_ZARA_COAT);
         checkOutPage.validateRequiredFields();
         Assert.assertFalse(false);
-
     }
+
 }
