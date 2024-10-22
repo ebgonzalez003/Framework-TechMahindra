@@ -19,8 +19,8 @@ public class OrdersPage {
         commands.waitForElementToDisappear(mainPageMap.spinner);
         commands.clickElement(mainPageMap.shoppingCart);
         commands.scrollToElementAndClick(checkOutPageMap.CheckoutBtn);
-        commands.sendKeysToElement(checkOutPageMap.CvvBox, ConstantsData.CVV_BOX);
-        commands.sendKeysToElement(checkOutPageMap.NameOnCard, ConstantsData.NAMECARD);
+        commands.sendKeysToElement(checkOutPageMap.CvvBox, ConstantsData.CVV_CODE);
+        commands.sendKeysToElement(checkOutPageMap.NameOnCard, ConstantsData.NAME_ON_CARD);
         commands.sendKeysToElement(checkOutPageMap.Country, ConstantsData.COUNTRY);
         commands.clickElement(checkOutPageMap.CountryBtn);
         commands.scrollToElementAndClick(checkOutPageMap.PlaceOrder);

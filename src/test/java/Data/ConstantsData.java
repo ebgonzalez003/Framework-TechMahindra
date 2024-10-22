@@ -1,25 +1,33 @@
 package Data;
+
 public class ConstantsData {
 
-    public final static String VALIDUSERNAME = "emilianobadilloplai21@gmail.com";
-    public final static String VALID_PASSWORD = "@Cristo1998";
-    public final static String INVALIDUSERNAME = "example123@hotmail.com";
+    // User credentials
+    public final static String VALID_USERNAME = System.getenv("VALID_USERNAME");
+    public final static String VALID_PASSWORD = System.getenv("VALID_PASSWORD");
+    public final static String INVALID_USERNAME = "example123@hotmail.com";
     public final static String INVALID_PASSWORD = "12345678910";
-    public final static String ARTICLEIPHONE = "IPHONE";
-    public final static String ARTICLEZARACOAT = "ZARA COAT 3";
-    public final static String CVV_BOX = "123";
-    public final static String NAMECARD = "Emiliano Badillo";
+
+    // Articles
+    public final static String ARTICLE_IPHONE = "IPHONE";
+    public final static String ARTICLE_ZARA_COAT = "ZARA COAT 3";
+
+    // Payment information
+    public final static String CVV_CODE = "123";
+    public final static String NAME_ON_CARD = "Emiliano Badillo";
     public final static String COUNTRY = "Mexico";
-    public final static String RESULT1 = "Showing results   |";
-    public final static String RESULT2 = "Showing 1 results   |";
-    public final static String RESULT4 = "Showing 4 results   |";
-    public final static String RESULT5 = "Showing 0 results   |";
-    public final static String THANKSMESSAGE = "THANKYOU FOR THE ORDER.";
-    public final static String ORDERTHANKSMSJ = "Thank you for Shopping With Us";
-    public final static String ERROR = "Error: Could not create test in Extent Reports.";
-    public final static String SUCCES = "Test created correctly in Extent Reports.";
-    public final static  String SHIPPINGMSJ = "true";
 
+    // Search results
+    public final static String RESULT_1 = "Showing 1 results   |";
+    public final static String RESULT_4 = "Showing 4 results   |";
+    public final static String RESULT_5 = "Showing 0 results   |";
 
+    // Order messages
+    public final static String ORDER_THANKS_MESSAGE = "Thank you for Shopping With Us";
+    public final static String THANKS_MESSAGE = "THANKYOU FOR THE ORDER.";
+
+    // Extent Report messages
+    public final static String ERROR_MESSAGE = "Error: Could not create test in Extent Reports.";
+    public final static String SUCCESS_MESSAGE = "Test created correctly in Extent Reports.";
 
 }

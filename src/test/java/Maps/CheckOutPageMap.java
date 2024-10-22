@@ -10,5 +10,4 @@ public class CheckOutPageMap {
     public By CountryBtn = By.xpath("//span[@class='ng-star-inserted']");
     public By ThanksMsg = By.xpath("//h1");
     public By HomeBtn = By.xpath("//app-thanksorder/app-sidebar/nav/ul/li[1]/button");
-    public By FullShippingMsj = By.xpath("//div[@id='toast-container']");
 }
