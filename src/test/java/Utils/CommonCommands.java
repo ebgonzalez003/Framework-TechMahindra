@@ -30,9 +30,9 @@ public class CommonCommands {
         try{
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
-            test.pass("Successfully click on element " + locator );
+            test.pass("Successfully click on element: " + locator );
         }catch (Exception e){
-            test.fail("Not able to click on element" + locator) ;
+            test.fail("Not able to click on element: " + locator) ;
         }
     }
 
@@ -42,9 +42,9 @@ public class CommonCommands {
            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
            element.clear();
            element.sendKeys(text);
-           test.pass("Successfully Keys sent correctly  " + locator );
+           test.pass("Successfully Keys sent correctly:  " + locator );
        }catch (Exception e){
-           test.fail("The keys were not sent correctly " + locator) ;
+           test.fail("The keys were not sent correctly:  " + locator) ;
        }
     }
 
@@ -75,6 +75,7 @@ public class CommonCommands {
 
     // Method to get the text of an element
     public String getTextFromElement(By locator) {
+
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return element.getText();
     }

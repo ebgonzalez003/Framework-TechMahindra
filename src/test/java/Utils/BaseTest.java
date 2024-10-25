@@ -1,4 +1,5 @@
 package Utils;
+import Data.ConstantsData;
 import Maps.CheckOutPageMap;
 import Maps.MainPageMap;
 import Pages.LoginPage;
@@ -33,6 +34,7 @@ public class BaseTest implements ITestListener {
     public OrdersPage OrdersPage;
     public ExtentTest test;
     public ExtentReports extent;
+    public String methodName;
 
 
 
@@ -54,7 +56,8 @@ public class BaseTest implements ITestListener {
         mainPage = new MainPage(commands);
         checkOutPage= new CheckOutPage(commands);
         OrdersPage = new OrdersPage(commands);
-
+        methodName = method.getName();
+        LoggerUtil.info(ConstantsData.LOG_START + methodName);
     }
     @AfterMethod(groups = {"regression", "smoke"})
     public void tearDown(ITestResult result) {
@@ -67,7 +70,8 @@ public class BaseTest implements ITestListener {
         }else {
             test.skip("Test Skipped");
         }
-      //  if(driver!=null)driver.quit();
+        LoggerUtil.info(ConstantsData.LOG_END + methodName);
+        if(driver!=null)driver.quit();
     }
 
     @AfterSuite(groups = {"regression","smoke"})

@@ -3,8 +3,8 @@ package Data;
 public class ConstantsData {
 
     // User credentials
-    public final static String VALID_USERNAME = System.getenv("VALID_USERNAME");
-    public final static String VALID_PASSWORD = System.getenv("VALID_PASSWORD");
+    public final static String VALID_USERNAME =  "emilianobadilloplai21@gmail.com";
+    public final static String VALID_PASSWORD = "@Cristo1998";
     public final static String INVALID_USERNAME = "example123@hotmail.com";
     public final static String INVALID_PASSWORD = "12345678910";
 
@@ -29,5 +29,13 @@ public class ConstantsData {
     // Extent Report messages
     public final static String ERROR_MESSAGE = "Error: Could not create test in Extent Reports.";
     public final static String SUCCESS_MESSAGE = "Test created correctly in Extent Reports.";
+    public final static String SUCCESS_TEST = "Successfully created test:";
+
+    // Log4j Actions
+    public final static String LOG_ACTIONS = "Starting  some actions:";
+    public final static String LOG_COMPLETED = "Action completed ";
+    public final static String LOG_ERROR = "An error occurred while performing the action:";
+    public final static String LOG_START = "Starting test: ";
+    public final static String LOG_END = "Validate: ";
 
 }
