@@ -4,6 +4,7 @@ import Data.DataProviders;
 import Maps.OrdersListMap;
 import Utils.BaseTest;
 import Utils.ExtentReportManager;
+import Utils.LoggerUtil;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -12,26 +13,44 @@ import org.testng.annotations.Test;
 public class ShoppingTest extends BaseTest {
     @Test(groups = {"regression"}, dataProvider = "excelDataProvider", dataProviderClass = DataProviders.class)
     public void validateLoginCredetianls(String username, String password) {
-        loginPage.userLogin(username, password);
-        Assert.assertTrue(commands.isElementVisible(mainPageMap.signOutButton));
-        if (test == null) {
-            System.out.println(ConstantsData.ERROR_MESSAGE);
-        } else {
-            System.out.println(ConstantsData.SUCCESS_MESSAGE);
+        LoggerUtil.info("Starting test Validate Login Credentials: ");
+        try {
+            LoggerUtil.debug("Starting  some actions: ");
+            loginPage.userLogin(username, password);
+            Assert.assertTrue(commands.isElementVisible(mainPageMap.signOutButton));
+            LoggerUtil.info("Action completed: ");
+            if (test == null) {
+                System.out.println(ConstantsData.ERROR_MESSAGE);
+            } else {
+                System.out.println(ConstantsData.SUCCESS_MESSAGE);
+            }
+        }catch (Exception e){
+            LoggerUtil.error("An error occurred while performing the action:");
         }
+        LoggerUtil.info("Validate Login Credentials test completed.");
+
     }
 
     @Test(groups = {"regression"}, dataProvider = "excelDataProvider", dataProviderClass = DataProviders.class)
     public void validateLoginWrongCredentials(String username, String password) {
-        loginPage.userLogin(ConstantsData.INVALID_USERNAME, ConstantsData.INVALID_PASSWORD);
-        Assert.assertEquals(commands.getTextFromElement(mainPageMap.errorMessage), "Incorrect email or password.");
-        test  = ExtentReportManager.createTest("errorLogin");
-        test.log(Status.INFO, "Successfully created test: errorLogin");
-        if (test == null) {
-            System.out.println(ConstantsData.ERROR_MESSAGE);
-        } else {
-            System.out.println(ConstantsData.SUCCESS_MESSAGE);
-        }
+        LoggerUtil.info("Starting test Validate Login using wrong Credentials: ");
+       try {
+           loginPage.userLogin(ConstantsData.INVALID_USERNAME, ConstantsData.INVALID_PASSWORD);
+           LoggerUtil.debug("Starting  some actions: ");
+           Assert.assertEquals(commands.getTextFromElement(mainPageMap.errorMessage), "Incorrect email or password.");
+           LoggerUtil.info("Action completed: ");
+           test = ExtentReportManager.createTest("errorLogin");
+           test.log(Status.INFO, "Successfully created test: errorLogin");
+           if (test == null) {
+               System.out.println(ConstantsData.ERROR_MESSAGE);
+           } else {
+               System.out.println(ConstantsData.SUCCESS_MESSAGE);
+           }
+       }catch (Exception e){
+           LoggerUtil.error("An error occurred while performing the action:");
+       }
+        LoggerUtil.info("Validate Login Credentials test completed.");
+
     }
 
     @Test(groups = {"smoke"})
