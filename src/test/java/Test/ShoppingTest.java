@@ -176,7 +176,7 @@ public class ShoppingTest extends BaseTest {
             loginPage.userLogin(ConstantsData.VALID_USERNAME, ConstantsData.VALID_PASSWORD);
             LoggerUtil.debug(ConstantsData.LOG_ACTIONS);
             mainPage.categories();
-            Assert.assertEquals(commands.getTextFromElement(mainPageMap.filterResNumber), ConstantsData.RESULT_1);
+            Assert.assertEquals(commands.getTextFromElement(mainPageMap.filterResNumber), ConstantsData.RESULT_4);
             LoggerUtil.info(ConstantsData.LOG_COMPLETED);
             test = ExtentReportManager.createTest(methodName);
             test.log(Status.INFO, ConstantsData.SUCCESS_TEST + methodName);
