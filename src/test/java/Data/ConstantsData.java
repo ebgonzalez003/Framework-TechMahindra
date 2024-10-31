@@ -21,6 +21,7 @@ public class ConstantsData {
     public final static String RESULT_1 = "Showing 1 results   |";
     public final static String RESULT_4 = "Showing 4 results   |";
     public final static String RESULT_5 = "Showing 0 results   |";
+    public final static String RESULT = "Showing results   |";
 
     // Order messages
     public final static String ORDER_THANKS_MESSAGE = "Thank you for Shopping With Us";
